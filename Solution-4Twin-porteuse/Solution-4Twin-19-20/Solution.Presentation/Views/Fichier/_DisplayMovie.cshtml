@@ -1,0 +1,11 @@
+@model Solution.Presentation.Models.FichierVM
+@{string path = "~/Content/Upload/" + @Model.ImageUrl;}
+  <div style="float:left; margin:5px;">
+
+    <img alt="Fichier" src="@Url.Content(path)" width="50" height="50" />
+    <p>@Model.Description</p>
+    <p>@Model.ImageUrl</p>
+   
+ 
+  </div>
+

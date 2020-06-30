@@ -1,0 +1,59 @@
+@model IEnumerable<Solution.Presentation.Models.FichierVM>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@using (Html.BeginForm())
+{<table>
+        <tr>
+            <td>
+                <div>
+                    Search by title: @Html.TextBox("searchString")
+                </div>
+            </td>
+            <td> <input type="submit" value="Search" id="submit" /> </td>
+        </tr>
+    </table>}
+<table class="table">
+    <tr>
+      
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        
+       
+        <th></th>
+    </tr>
+
+    @if (Model != null)
+    {
+        foreach (var item in Model)
+        {
+<tr>
+ 
+  <td>
+    @Html.DisplayFor(modelItem => item.Description)
+  </td>
+ 
+  @Html.DisplayFor(modelItem => item.ImageUrl)
+  <td>
+    @{string path = "~/Content/Upload/" + @item.ImageUrl;}
+    <img src="@Url.Content(path)" width="50" height="50" />
+  </td>
+  
+  
+</tr>
+        }
+    }
+
+</table>

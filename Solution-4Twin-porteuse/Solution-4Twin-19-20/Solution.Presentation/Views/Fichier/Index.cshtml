@@ -1,0 +1,18 @@
+@model IEnumerable<Solution.Presentation.Models.FichierVM>
+@{
+    ViewBag.Title = "fichiers";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (Model != null)
+{
+    foreach (var film in Model)
+    {
+        @Html.Partial("_DisplayMovie", film);
+    }
+}
